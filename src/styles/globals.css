@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Primary (Electric Indigo) */
+  --color-primary-50: #EEF2FF;
+  --color-primary-100: #E0E7FF;
+  --color-primary-500: #6366F1;
+  --color-primary-600: #4F46E5;
+  --color-primary-700: #4338CA;
+  --color-primary-800: #3730A3;
+  --color-primary-fixed: #e2dfff;
+  --color-primary-fixed-dim: #c3c0ff;
+  --color-on-primary-fixed: #0f0069;
+  --color-on-primary-fixed-variant: #3323cc;
+
+  /* Secondary (Slate Cyan) */
+  --color-secondary-50: #F0F9FF;
+  --color-secondary-500: #0EA5E9;
+  --color-secondary-600: #0284C7;
+  --color-secondary-fixed: #c9e6ff;
+  --color-secondary-fixed-dim: #89ceff;
+  --color-on-secondary-fixed: #001e2f;
+  --color-on-secondary-fixed-variant: #004c6e;
+
+  /* Tertiary */
+  --color-tertiary-500: #006e4b;
+  --color-tertiary-fixed: #6ffbbe;
+  --color-tertiary-fixed-dim: #4edea3;
+  --color-on-tertiary-fixed: #002113;
+  --color-on-tertiary-fixed-variant: #005236;
+
+  /* Semantic status */
+  --color-success: #10B981;
+  --color-success-container: #ECFDF5;
+  --color-warning: #F59E0B;
+  --color-warning-container: #FFFBEB;
+  --color-error: #F43F5E;
+  --color-error-container: #FFF1F2;
+  --color-info: #0284C7;
+  --color-info-container: #F0F9FF;
+
+  /* Border radius tokens */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-mobile: 1rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2rem;
+}
+
+/* Light Theme (Default) */
+:root {
+  --color-canvas: #F8FAFC;
+  --color-surface-base: #FFFFFF;
+  --color-surface-raised: #F1F5F9;
+  --color-border-subdued: #E2E8F0;
+  --color-border-strong: #CBD5E1;
+  --color-on-surface: #0B1C30;
+  --color-on-surface-variant: #464555;
+  --color-on-surface-muted: #64748B;
+  
+  --shadow-level-1: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  --shadow-level-2: 0 10px 25px -5px rgba(79, 70, 229, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.05);
+  --shadow-level-3: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+}
+
+/* Dark Theme */
+.dark {
+  --color-canvas: #0B0F19;
+  --color-surface-base: #111827;
+  --color-surface-raised: #1E293B;
+  --color-border-subdued: #1F2937;
+  --color-border-strong: #334155;
+  --color-on-surface: #F8FAFC;
+  --color-on-surface-variant: #CBD5E1;
+  --color-on-surface-muted: #94A3B8;
+
+  --shadow-level-1: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-level-2: 0 10px 25px -5px rgba(0, 0, 0, 0.6), 0 8px 10px -6px rgba(79, 70, 229, 0.15);
+  --shadow-level-3: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+}
+
+/* Utilities mapping CSS variables to Tailwind-like utility classes */
+@layer utilities {
+  .bg-canvas {
+    background-color: var(--color-canvas);
+  }
+  .bg-surface-base {
+    background-color: var(--color-surface-base);
+  }
+  .bg-surface-raised {
+    background-color: var(--color-surface-raised);
+  }
+  .border-subdued {
+    border-color: var(--color-border-subdued);
+  }
+  .border-strong {
+    border-color: var(--color-border-strong);
+  }
+  .text-on-surface {
+    color: var(--color-on-surface);
+  }
+  .text-on-surface-variant {
+    color: var(--color-on-surface-variant);
+  }
+  .text-on-surface-muted {
+    color: var(--color-on-surface-muted);
+  }
+  .shadow-level-1 {
+    box-shadow: var(--shadow-level-1);
+  }
+  .shadow-level-2 {
+    box-shadow: var(--shadow-level-2);
+  }
+  .shadow-level-3 {
+    box-shadow: var(--shadow-level-3);
+  }
+}
+
+/* Base styles */
+html, body {
+  min-height: 100%;
+  font-family: var(--font-sans);
+  background-color: var(--color-canvas);
+  color: var(--color-on-surface);
+}
+
+/* Focus outline accessibility */
+:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+/* Touch targets guarantee for mobile */
+@media (pointer: coarse) {
+  button, a, input, select, textarea {
+    min-height: 44px;
+  }
+}
+
